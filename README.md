@@ -7,8 +7,8 @@
 ## 专题文章
 1. [是时候升级java11了-01-jdk11优势和jdk选择](https://juejin.im/post/5e4df461e51d4526cd1de49a)
 2. [是时候升级java11了-02-升级jdk11踩坑记](https://juejin.im/post/5e511a3af265da574b790e87)
-3. 是时候升级java11了-03虚拟机Jvm参数设置
-4. 是时候升级java11了-04微服务内http2通信之http2 Clear Text（h2c）
+3. [是时候升级java11了-03虚拟机Jvm参数设置](https://juejin.im/post/5e572e226fb9a07cd00d8446)
+4. [是时候升级java11了-04微服务内http2通信之http2 Clear Text（h2c）](https://juejin.im/post/5e64540ef265da5735505f6e)
 5. 是时候升级java11了-05微服务内h2c通信的阻碍和问题解决
 
 ## 配置项
