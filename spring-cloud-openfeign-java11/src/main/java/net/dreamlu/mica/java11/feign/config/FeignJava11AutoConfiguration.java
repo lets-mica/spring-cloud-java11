@@ -35,8 +35,8 @@ import java.net.http.HttpClient;
  *
  * @author L.cm
  */
-@Configuration
 @ConditionalOnClass(Feign.class)
+@Configuration(proxyBeanMethods = false)
 @AutoConfigureBefore(FeignJava11AutoConfiguration.class)
 @EnableConfigurationProperties(FeignHttpClientProperties.class)
 public class FeignJava11AutoConfiguration {

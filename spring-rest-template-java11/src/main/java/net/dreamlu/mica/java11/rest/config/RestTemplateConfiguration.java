@@ -17,7 +17,6 @@
 package net.dreamlu.mica.java11.rest.config;
 
 
-import lombok.RequiredArgsConstructor;
 import net.dreamlu.mica.java11.rest.core.HttpClientHttpRequestFactory;
 import net.dreamlu.mica.java11.rest.logger.RestTemplateLoggingInterceptor;
 import org.springframework.beans.factory.ObjectProvider;
@@ -34,9 +33,8 @@ import java.net.http.HttpClient;
  *
  * @author L.cm
  */
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @EnableConfigurationProperties(HttpClientRestProperties.class)
-@RequiredArgsConstructor
 public class RestTemplateConfiguration {
 
 	/**
