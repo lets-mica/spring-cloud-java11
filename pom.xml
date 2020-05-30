@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.dreamlu</groupId>
     <artifactId>spring-cloud-java11</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
     <name>spring-cloud-java11</name>
     <description>Spring cloud java11 Extension.</description>
@@ -22,7 +22,7 @@
         <feign-java11.version>10.10.1</feign-java11.version>
         <spring.boot.version>2.3.0.RELEASE</spring.boot.version>
         <spring.cloud.version>Hoxton.SR4</spring.cloud.version>
-        <mica-auto.version>1.2.2</mica-auto.version>
+        <mica-auto.version>1.2.3</mica-auto.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
