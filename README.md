@@ -11,6 +11,25 @@
 4. [是时候升级java11了-04微服务内http2通信之http2 Clear Text（h2c）](https://juejin.im/post/5e64540ef265da5735505f6e)
 5. 是时候升级java11了-05微服务内h2c通信的阻碍和问题解决
 
+## 使用
+### spring-cloud-openfeign-java11
+```xml
+<dependency>
+    <groupId>net.dreamlu</groupId>
+    <artifactId>spring-cloud-openfeign-java11</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+### spring-rest-template-java11
+```xml
+<dependency>
+    <groupId>net.dreamlu</groupId>
+    <artifactId>spring-rest-template-java11</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
 ## 配置项
 ### spring-cloud-openfeign-java11
 | 配置项 | 默认值 | 说明 |
