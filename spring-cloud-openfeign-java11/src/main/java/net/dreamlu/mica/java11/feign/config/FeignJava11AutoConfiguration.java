@@ -18,7 +18,7 @@ package net.dreamlu.mica.java11.feign.config;
 
 import feign.Client;
 import feign.Feign;
-import feign.http2client.Http2Client;
+import net.dreamlu.mica.java11.feign.config.httpclient.Http2Client;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

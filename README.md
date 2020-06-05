@@ -17,7 +17,7 @@
 <dependency>
     <groupId>net.dreamlu</groupId>
     <artifactId>spring-cloud-openfeign-java11</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -26,7 +26,7 @@
 <dependency>
     <groupId>net.dreamlu</groupId>
     <artifactId>spring-rest-template-java11</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 

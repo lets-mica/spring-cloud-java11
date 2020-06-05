@@ -15,17 +15,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-java11</artifactId>
-            <version>${feign-java11.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.github.openfeign</groupId>
-                    <artifactId>feign-core</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
     </dependencies>
 
 </project>
