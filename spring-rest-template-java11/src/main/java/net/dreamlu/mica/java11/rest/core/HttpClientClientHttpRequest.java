@@ -59,6 +59,7 @@ public class HttpClientClientHttpRequest extends AbstractClientHttpRequest {
 			HttpResponse<InputStream> response = client.send(request, HttpResponse.BodyHandlers.ofInputStream());
 			return new HttpClientHttpResponse(response);
 		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
 			throw new IOException(e);
 		} finally {
 			this.bufferedOutput = new ByteArrayOutputStream(0);
