@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.dreamlu</groupId>
     <artifactId>spring-cloud-java11</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>pom</packaging>
     <name>spring-cloud-java11</name>
     <description>Spring cloud java11 Extension.</description>
@@ -13,16 +13,16 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.1.RELEASE</version>
+        <version>2.3.2.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
         <java.version>11</java.version>
-        <feign-java11.version>10.10.1</feign-java11.version>
-        <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
+        <feign-java11.version>10.11</feign-java11.version>
+        <spring.boot.version>2.3.2.RELEASE</spring.boot.version>
         <spring.cloud.version>Hoxton.SR6</spring.cloud.version>
-        <mica-auto.version>1.2.3</mica-auto.version>
+        <mica-auto.version>1.2.5</mica-auto.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
