@@ -21,7 +21,7 @@
         <java.version>11</java.version>
         <spring.boot.version>2.4.4</spring.boot.version>
         <spring.cloud.version>2020.0.2</spring.cloud.version>
-        <mica-auto.version>1.2.5</mica-auto.version>
+        <mica-auto.version>2.0.4</mica-auto.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
