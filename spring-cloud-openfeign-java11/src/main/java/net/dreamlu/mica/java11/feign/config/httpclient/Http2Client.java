@@ -73,7 +73,7 @@ public class Http2Client implements Client {
 
 		final OptionalLong length = httpResponse.headers().firstValueAsLong("Content-Length");
 
-		final Response response = Response.builder()
+		return Response.builder()
 			.body(new ByteArrayInputStream(httpResponse.body()),
 				length.isPresent() ? (int) length.getAsLong() : null)
 			.reason(httpResponse.headers().firstValue("Reason-Phrase").orElse("OK"))
@@ -81,7 +81,6 @@ public class Http2Client implements Client {
 			.status(httpResponse.statusCode())
 			.headers(castMapCollectType(httpResponse.headers().map()))
 			.build();
-		return response;
 	}
 
 	private Builder newRequestBuilder(Request request, Options options) throws IOException {
