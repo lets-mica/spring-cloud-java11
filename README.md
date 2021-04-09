@@ -1,5 +1,7 @@
 # Spring cloud java11 扩展
 
+[![Maven release](https://img.shields.io/nexus/r/https/oss.sonatype.org/net.dreamlu/spring-cloud-java11.svg?style=flat-square)](https://mvnrepository.com/artifact/net.dreamlu/spring-cloud-java11)
+
 ## 功能
 1. spring-cloud-openfeign-java11 [spring-cloud-openfeign](https://github.com/spring-cloud/spring-cloud-openfeign) 使用 `feign-java11` 扩展。
 2. spring-rest-template-java11 Spring RestTemplate 的 `java11 HttpClient` 扩展。
