@@ -20,11 +20,18 @@ import feign.Client;
 import feign.Feign;
 import net.dreamlu.mica.java11.feign.config.httpclient.Http2Client;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.cloud.netflix.ribbon.SpringClientFactory;
-import org.springframework.cloud.openfeign.ribbon.CachingSpringLoadBalancerFactory;
-import org.springframework.cloud.openfeign.ribbon.LoadBalancerFeignClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalancedRetryFactory;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerProperties;
+import org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory;
+import org.springframework.cloud.openfeign.loadbalancer.FeignBlockingLoadBalancerClient;
+import org.springframework.cloud.openfeign.loadbalancer.OnRetryNotEnabledCondition;
+import org.springframework.cloud.openfeign.loadbalancer.RetryableFeignBlockingLoadBalancerClient;
 import org.springframework.context.annotation.*;
 
 import java.net.http.HttpClient;
@@ -51,11 +58,29 @@ public class FeignJava11AutoConfiguration {
 	}
 
 	@Bean
-	public Client feignClient(HttpClient client,
-							  CachingSpringLoadBalancerFactory cachingFactory,
-							  SpringClientFactory clientFactory) {
-		Http2Client http2Client = new Http2Client(client);
-		return new LoadBalancerFeignClient(http2Client, cachingFactory, clientFactory);
+	@ConditionalOnMissingBean
+	@Conditional(OnRetryNotEnabledCondition.class)
+	public Client feignClient(HttpClient httpClient,
+							  LoadBalancerClient loadBalancerClient,
+							  LoadBalancerProperties properties,
+							  LoadBalancerClientFactory loadBalancerClientFactory) {
+		Http2Client delegate = new Http2Client(httpClient);
+		return new FeignBlockingLoadBalancerClient(delegate, loadBalancerClient, properties, loadBalancerClientFactory);
+	}
+
+	@Bean
+	@ConditionalOnMissingBean
+	@ConditionalOnClass(name = "org.springframework.retry.support.RetryTemplate")
+	@ConditionalOnBean(LoadBalancedRetryFactory.class)
+	@ConditionalOnProperty(value = "spring.cloud.loadbalancer.retry.enabled", havingValue = "true", matchIfMissing = true)
+	public Client feignRetryClient(LoadBalancerClient loadBalancerClient,
+								   HttpClient httpClient,
+								   LoadBalancedRetryFactory loadBalancedRetryFactory,
+								   LoadBalancerProperties properties,
+								   LoadBalancerClientFactory loadBalancerClientFactory) {
+		Http2Client delegate = new Http2Client(httpClient);
+		return new RetryableFeignBlockingLoadBalancerClient(delegate, loadBalancerClient, loadBalancedRetryFactory,
+			properties, loadBalancerClientFactory);
 	}
 
 }
